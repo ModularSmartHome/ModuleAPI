@@ -1,4 +1,5 @@
-﻿using ModuleAPI.Models;
+﻿using DefaultNamespace;
+using ModuleAPI.Models;
 
 namespace ModuleAPI;
 
@@ -11,7 +12,6 @@ public class ModuleAPI
         WebAppBuilder = WebApplication.CreateBuilder(args);
         WebAppBuilder.Services.AddControllers();
         WebAppBuilder.Services.AddEndpointsApiExplorer();
-        WebAppBuilder.Services.AddSwaggerGen();
     }
 
     public ModuleAPI SetActionHandler(IActionHandler actionHandler)
@@ -28,9 +28,17 @@ public class ModuleAPI
 
     public void RunServer()
     {
+        DefineApplicationPort();
         var app = WebAppBuilder.Build();
         app.MapControllers();
         app.Run();
+    }
+
+    private void DefineApplicationPort()
+    {
+        var tcpLookup = new TcpPortLookup();
+        var freePort =tcpLookup.GetUnusedPort();
+        WebAppBuilder.WebHost.UseUrls("http://localhost:" + freePort);
     }
 
 
