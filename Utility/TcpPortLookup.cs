@@ -5,8 +5,6 @@ namespace DefaultNamespace;
 
 public class TcpPortLookup
 {
-    
-    private string Hostname = "localhost";
 
     public int GetUnusedPort()
     {
