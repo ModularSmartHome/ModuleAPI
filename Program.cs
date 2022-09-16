@@ -8,9 +8,4 @@ module.RunServer();
 
 /*
 ModuleServer:
-/getModuleInfo
-/shutdown
-/enable
-/disable
-/idle
  */
