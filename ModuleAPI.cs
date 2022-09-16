@@ -1,5 +1,6 @@
 ﻿using DefaultNamespace;
 using ModuleAPI.Models;
+using ModuleAPI.Shared;
 
 namespace ModuleAPI;
 
@@ -27,10 +28,17 @@ public class ModuleAPI
         return this;
     }
 
+    public ModuleAPI SetDatabaseContext<T>() where T : AbstractDatabaseContext
+    {
+        WebAppBuilder.Services.AddDbContext<T>();
+        return this;
+    }
+
     public void RunServer()
     {
         DefineApplicationPort();
         var app = WebAppBuilder.Build();
+        CheckDatabaseConnection(app);
         app.MapControllers();
         app.Run();
     }
@@ -40,6 +48,22 @@ public class ModuleAPI
         var tcpLookup = new TcpPortLookup();
         var freePort =tcpLookup.GetUnusedPort();
         WebAppBuilder.WebHost.UseUrls("http://localhost:" + freePort);
+    }
+
+    private void CheckDatabaseConnection(WebApplication app)
+    {
+        using (var scope = app.Services.CreateScope())
+        using (var db = scope.ServiceProvider.GetService<AbstractDatabaseContext>()!)
+        {
+            if (db.Database.CanConnect())
+            {
+                Console.WriteLine("Able to connect to database");
+            }
+            else
+            {
+                Console.WriteLine("Unable to connect to database");
+            }
+        }
     }
 
 

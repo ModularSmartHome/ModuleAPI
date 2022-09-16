@@ -18,7 +18,6 @@ public class AbstractDatabaseContext : DbContext
         var client = new RestClient(Arguments);
         var task = client.GetConnectionKey();
         var connectionString = task.GetAwaiter().GetResult();
-        Console.WriteLine("ConnectionString: " + connectionString);
         optionsBuilder.UseNpgsql(connectionString);
 
 
