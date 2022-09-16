@@ -20,6 +20,12 @@ public class ModuleAPI
         return this;
     }
 
+    public ModuleAPI SetModuleInfo(ModuleInfo info)
+    {
+        WebAppBuilder.Services.AddSingleton<ModuleInfo>(sp => info);
+        return this;
+    }
+
     public void RunServer()
     {
         var app = WebAppBuilder.Build();
