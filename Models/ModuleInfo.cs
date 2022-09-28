@@ -1,4 +1,4 @@
-﻿namespace ModuleAPI.Models;
+﻿namespace ModularSmartHome.ModuleAPI.Models;
 
 public class ModuleInfo
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModuleAPI.Models;
+using ModularSmartHome.ModuleAPI.Models;
 
-namespace ModuleAPI.Controllers;
+namespace ModularSmartHome.ModuleAPI.Controllers;
 
 [ApiController]
 public class ModuleInfoController : ControllerBase

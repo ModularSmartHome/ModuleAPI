@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ModuleAPI.Controllers;
+namespace ModularSmartHome.ModuleAPI.Controllers;
 
 [ApiController]
 public class ChangeStatusController : ControllerBase

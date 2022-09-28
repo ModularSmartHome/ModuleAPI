@@ -1,8 +1,8 @@
 ﻿using DefaultNamespace;
-using ModuleAPI.Models;
-using ModuleAPI.Shared;
+using ModularSmartHome.ModuleAPI.Models;
+using ModularSmartHome.ModuleAPI.Shared;
 
-namespace ModuleAPI;
+namespace ModularSmartHome.ModuleAPI;
 
 public class ModuleAPI
 {
