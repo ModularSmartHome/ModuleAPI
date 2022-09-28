@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModularSmartHome.ModuleAPI</id>
-    <version>0.1.0</version>
+    <version>0.1.5</version>
     <authors>Mathis Burger</authors>
     <owners>Mathis Burger</owners>
     <projectUrl>https://github.com/ModularSmartHome/ModuleAPI</projectUrl>
@@ -18,4 +18,11 @@
       <dependency id="Swashbuckle.AspNetCore" version="6.2.3" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="ModuleAPI.cs" />
+    <file src="Shared/**" />
+    <file src="Models/**" />
+    <file src="Utility/**" />
+    <file src="Controllers/**" />
+  </files>
 </package>
