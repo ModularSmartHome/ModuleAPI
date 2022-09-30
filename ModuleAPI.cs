@@ -45,6 +45,7 @@ public class ModuleAPI
         var app = WebAppBuilder.Build();
         CheckDatabaseConnection(app);
         app.MapControllers();
+        app.MapRazorPages();
         app.Run();
     }
 
