@@ -1,7 +1,7 @@
-﻿using System.Net;
+﻿
 using System.Net.Sockets;
 
-namespace DefaultNamespace;
+namespace ModuleAPI.Utility;
 
 public class TcpPortLookup
 {

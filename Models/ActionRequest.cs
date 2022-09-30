@@ -1,4 +1,4 @@
-﻿namespace ModularSmartHome.ModuleAPI.Models;
+﻿namespace ModuleAPI.Models;
 
 public class ActionRequest
 {

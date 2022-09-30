@@ -1,8 +1,8 @@
 ﻿using System.Text;
 using System.Text.Json;
-using ModularSmartHome.ModuleAPI.Models;
+using ModuleAPI.Models;
 
-namespace ModularSmartHome.ModuleAPI.Shared;
+namespace ModuleAPI.Shared;
 
 public class RestClient : HttpClient
 {

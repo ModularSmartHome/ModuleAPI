@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModularSmartHome.ModuleAPI.Models;
+using ModuleAPI.Models;
 
-namespace ModularSmartHome.ModuleAPI.Controllers;
+namespace ModuleAPI.Controllers;
 
 [ApiController]
 public class ActionController : ControllerBase

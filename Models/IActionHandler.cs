@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ModularSmartHome.ModuleAPI.Models;
+namespace ModuleAPI.Models;
 
 public interface IActionHandler
 {

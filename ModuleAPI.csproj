@@ -4,6 +4,11 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <PackageId>ModularSmartHome.ModuleAPI</PackageId>
+        <Version>0.2.0</Version>
+        <Authors>Mathis Burger</Authors>
+        <Company>No</Company>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,5 +35,4 @@
     <ItemGroup>
       <Content Remove="Example\**" />
     </ItemGroup>
-
 </Project>

@@ -1,8 +1,8 @@
-﻿using DefaultNamespace;
-using ModularSmartHome.ModuleAPI.Models;
-using ModularSmartHome.ModuleAPI.Shared;
+﻿using ModuleAPI.Utility;
+using ModuleAPI.Models;
+using ModuleAPI.Shared;
 
-namespace ModularSmartHome.ModuleAPI;
+namespace ModuleAPI;
 
 public class ModuleAPI
 {
@@ -14,6 +14,11 @@ public class ModuleAPI
         WebAppBuilder.Services.AddControllers();
         WebAppBuilder.Services.AddEndpointsApiExplorer();
         WebAppBuilder.Services.AddSingleton<ArgumentListener>(sp => new ArgumentListener(args));
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Started app");
     }
 
     public ModuleAPI SetActionHandler(IActionHandler actionHandler)

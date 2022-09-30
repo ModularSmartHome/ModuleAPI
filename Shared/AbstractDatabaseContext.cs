@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ModularSmartHome.ModuleAPI.Models;
+using ModuleAPI.Models;
 
-namespace ModularSmartHome.ModuleAPI.Shared;
+namespace ModuleAPI.Shared;
 
 public class AbstractDatabaseContext : DbContext
 {
