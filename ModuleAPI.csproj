@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <PackageId>ModularSmartHome.ModuleAPI</PackageId>
-        <Version>0.2.1</Version>
+        <Version>0.2.4</Version>
         <Authors>Mathis Burger</Authors>
         <Company>No</Company>
         <IsPackable>true</IsPackable>

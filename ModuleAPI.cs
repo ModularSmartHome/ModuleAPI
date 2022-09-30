@@ -12,6 +12,7 @@ public class ModuleAPI
     {
         WebAppBuilder = WebApplication.CreateBuilder(args);
         WebAppBuilder.Services.AddControllers();
+        WebAppBuilder.Services.AddRazorPages();
         WebAppBuilder.Services.AddEndpointsApiExplorer();
         WebAppBuilder.Services.AddSingleton<ArgumentListener>(sp => new ArgumentListener(args));
     }
