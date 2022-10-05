@@ -35,4 +35,27 @@ public class RestClient : HttpClient
         }
     }
 
+    public async Task SetModuleHost(string moduleHost)
+    {
+        var key = Args.GetModuleKey();
+        var data = new
+        {
+            accessKey = key,
+            host = moduleHost
+            
+        };
+        var json = JsonSerializer.Serialize(data);
+        var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+        try
+        {
+            HttpResponseMessage response = await PostAsync(Args.GetKernelHost() + "/api/Module/SetModuleHost",
+                stringContent);
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine(ex.InnerException?.Message);
+        }
+    }
+
 }

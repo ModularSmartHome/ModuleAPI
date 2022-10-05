@@ -1,4 +1,5 @@
-﻿using ModuleAPI.Utility;
+﻿using Microsoft.EntityFrameworkCore;
+using ModuleAPI.Utility;
 using ModuleAPI.Models;
 using ModuleAPI.Shared;
 
@@ -42,19 +43,49 @@ public class ModuleAPI
 
     public void RunServer()
     {
-        DefineApplicationPort();
+        var applicationUrl = DefineApplicationPort();
         var app = WebAppBuilder.Build();
         CheckDatabaseConnection(app);
+        MigrateDatabase(app);
+        SetModuleHost(app, applicationUrl).Wait();
         app.MapControllers();
         app.MapRazorPages();
         app.Run();
     }
 
-    private void DefineApplicationPort()
+    private string DefineApplicationPort()
     {
         var tcpLookup = new TcpPortLookup();
         var freePort =tcpLookup.GetUnusedPort();
-        WebAppBuilder.WebHost.UseUrls("http://localhost:" + freePort);
+        var hostUrl = "http://localhost:" + freePort;
+        WebAppBuilder.WebHost.UseUrls(hostUrl);
+        Console.WriteLine("Starting application on: " + hostUrl);
+        return hostUrl;
+    }
+
+    private async Task SetModuleHost(WebApplication app, string host)
+    {
+        using (var scope = app.Services.CreateScope())
+        {
+            var listener = scope.ServiceProvider.GetService<ArgumentListener>()!;
+            await new RestClient(listener).SetModuleHost(host);
+        }
+    }
+
+    private void MigrateDatabase(WebApplication app)
+    {
+        using (var scope = app.Services.CreateScope())
+        using (var db = scope.ServiceProvider.GetService<AbstractDatabaseContext>()!)
+        {
+            try
+            {
+                db.Database.Migrate();
+            }
+            catch
+            {
+                Console.WriteLine("Already migrated");
+            }
+        }
     }
 
     private void CheckDatabaseConnection(WebApplication app)
